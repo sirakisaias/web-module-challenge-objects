@@ -15,9 +15,11 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(/*Your code here*/){
-    /*Your code here*/
+function createMenuItem(name, price, category){
+    return {name, price, category};
 }
+console.log('task 1a: ',createMenuItem('Dorho', 11, 'dinner'));
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1b: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Invoke your function!
@@ -28,6 +30,7 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+console.log('task 1b: ',createMenuItem('pizza', 5,'lunch'));
 
 
 
@@ -49,8 +52,17 @@ export const burger = {
   price: 18, 
   category: "Lunch", 
   /*Your code here*/
+  discount: function(name){
+    const newValue=[];
+    if (name ==='student' || name ==='teacher') {
+       return this.price-(this.price*0.25);
+    } else if(name==='public'){
+      return this.price-(this.price*0.1);
+    }
+    
+  }
 }
-
+console.log('task 2: ',burger.discount('public'));
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -62,14 +74,14 @@ const reviews = [
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." },
     {name: "Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."},
-    {name: "Reyna", rating: 3.5, feedback: ""},
-]
+    {name: "Reyna", rating: 3.5, feedback:""},
+];
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
-
+console.log('task  3:', reviews[5].feedback)
 
 
 
@@ -78,7 +90,8 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-
+reviews.unshift({name:'sirak', rating:5, feedback:'asmara eritrean is beautiful'});
+console.log('task 4: ',reviews);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -86,7 +99,8 @@ Reyna's feedback is missing! Use what you know to do the following: (no function
   1. Add this feedback to Reyna's rating - "this place is chill with really cool people, great for getting work done on weekdays"
   2. log the reviews array to the console to check your work
 */
-
+reviews[8].feedback = "this place is chill with really cool people, great for getting work done on weekdays";
+console.log('task 5: ',reviews);
 
 
 
@@ -102,10 +116,10 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, num1) {
+  return `${array[num1].name} gave the restaurant a ${array[num1].rating} star review, and their feedback was: ${array[num1].feedback}`;
 }
-
+console.log('task 6:',getReviewByIndex(reviews,0));
 
   
 
@@ -121,9 +135,13 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
+function getLastReview(array) {
   /*Your code here*/
+  const lastString=array.length-1;
+  
+  return `${array[lastString].name} gave the restaurant a ${array[lastString].rating} star review, and their feedback was: ${array[lastString].feedback}`;
 } 
+console.log('task 7:',getLastReview(reviews));
 
 
 
